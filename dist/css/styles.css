@@ -1,4 +1,4 @@
-@charset "UTF-8";
+ @charset "UTF-8";
 /*!
 * Start Bootstrap - Bare v5.0.8 (https://startbootstrap.com/template/bare)
 * Copyright 2013-2022 Start Bootstrap
@@ -674,6 +674,16 @@ progress {
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
 }
+.rowws {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
 .row > * {
   flex-shrink: 0;
   width: 100%;
@@ -3352,11 +3362,12 @@ textarea.form-control-lg {
   background-color: #0dcaf0;
   border-color: #0dcaf0;
 }
+
 .btn-check:focus + .btn-outline-info, .btn-outline-info:focus {
   box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.5);
 }
 .btn-check:checked + .btn-outline-info, .btn-check:active + .btn-outline-info, .btn-outline-info:active, .btn-outline-info.active, .btn-outline-info.dropdown-toggle.show {
-  color: #000;
+  color: #0dcaf0;
   background-color: #0dcaf0;
   border-color: #0dcaf0;
 }
@@ -3364,7 +3375,7 @@ textarea.form-control-lg {
   box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.5);
 }
 .btn-outline-info:disabled, .btn-outline-info.disabled {
-  color: #0dcaf0;
+  color: #000;
   background-color: transparent;
 }
 

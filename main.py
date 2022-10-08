@@ -1,12 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 import tmdb_client
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/',methods=['GET'])
 def homepage():
+    list_type=request.args.get("list_type",'')
     movies = tmdb_client.get_popular_movies()["results"][:8]
-    return render_template("homepage.html", movies=movies)
+    return render_template("homepage.html", movies=movies,list_type=list_type)
 """
 @app.route('/')
 def homepage():
@@ -22,11 +23,12 @@ def utility_processor():
         return tmdb_client.get_poster_url(path, size)
     return {"tmdb_image_url": tmdb_image_url}
 
+
 @app.route("/movie/<movie_id>")
 def movie_details(movie_id):
-    movie = tmdb_client.movie_id()
-    return render_template("movie_details.html",movie=movie)
-
+   details = tmdb_client.get_single_movie(movie_id)
+   cast = tmdb_client.get_single_movie_cast(movie_id,4)
+   return render_template("movie_details.html", movie=details, cast=cast)
 
 
 if __name__ == "__main__":
