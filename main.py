@@ -3,10 +3,11 @@ import tmdb_client
 
 app = Flask(__name__)
 
+
 @app.route('/',methods=['GET'])
 def homepage():
     list_type=request.args.get("list_type",'')
-    movies = tmdb_client.get_popular_movies()["results"][:8]
+    movies = tmdb_client.get_movies(is_random=True,how_many=8)
     return render_template("homepage.html", movies=movies,list_type=list_type)
 """
 @app.route('/')
